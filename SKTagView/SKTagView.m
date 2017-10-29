@@ -152,15 +152,14 @@
     self.didSetup = YES;
 }
 
-- (NSInteger)currentSelectedCount {
-    NSInteger count = 0;
+- (NSArray<SKTag *> *)currentSelectedTags {
+    NSMutableArray *temp = [NSMutableArray array];
     for (SKTag *tag in self.tags) {
         if (tag.isSelected) {
-            count++;
+            [temp addObject:tag];
         }
     }
-    _currentSelectedCount = count;
-    return count;
+    return temp;
 }
 
 #pragma mark - IBActions
@@ -168,7 +167,7 @@
 - (void)onTag: (SKTagButton *)btn {
     BOOL newIsSelected = !btn.isSelected;
     if (newIsSelected) {
-        if ([self currentSelectedCount] == _maxSelectCount) {
+        if (self.currentSelectedTags.count == _maxSelectCount) {
             if (self.didTapOverMax) {
                 self.didTapOverMax();
             }
