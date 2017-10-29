@@ -159,6 +159,7 @@
             count++;
         }
     }
+    _currentSelectedCount = count;
     return count;
 }
 

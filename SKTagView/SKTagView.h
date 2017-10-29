@@ -17,6 +17,7 @@
 @property (copy, nonatomic, nullable) void (^didTapTagAtIndex)(NSUInteger index);
 @property (copy, nonatomic, nullable) void (^didTapOverMax)(void);
 @property (assign, nonatomic) NSInteger maxSelectCount;
+@property (assign, nonatomic) NSInteger currentSelectedCount;
 
 - (void)addTag: (nonnull SKTag *)tag;
 - (void)insertTag: (nonnull SKTag *)tag atIndex:(NSUInteger)index;
