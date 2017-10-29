@@ -8,10 +8,15 @@
 
 #import "AppDelegate.h"
 #import "ViewController.h"
+#import "MutiselectController.h"
 
 @implementation AppDelegate
 
 - (BOOL)application: (UIApplication *)application didFinishLaunchingWithOptions: (NSDictionary *)launchOptions {
+    _window = [[UIWindow alloc] init];
+    _window.backgroundColor = [UIColor whiteColor];
+    _window.rootViewController = [MutiselectController new];
+    [_window makeKeyAndVisible];
     return YES;
 }
 

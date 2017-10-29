@@ -5,7 +5,7 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-
+NS_ASSUME_NONNULL_BEGIN
 @interface SKTag : NSObject
 
 @property (copy, nonatomic, nullable) NSString *text;
@@ -14,9 +14,11 @@
 ///backgound color
 @property (strong, nonatomic, nullable) UIColor *bgColor;
 @property (strong, nonatomic, nullable) UIColor *highlightedBgColor;
+@property (strong, nonatomic, nullable) UIColor *selectedBgColor;
 ///background image
 @property (strong, nonatomic, nullable) UIImage *bgImg;
 @property (assign, nonatomic) CGFloat cornerRadius;
+///border
 @property (strong, nonatomic, nullable) UIColor *borderColor;
 @property (assign, nonatomic) CGFloat borderWidth;
 ///like padding in css
@@ -26,8 +28,11 @@
 @property (assign, nonatomic) CGFloat fontSize;
 ///default:YES
 @property (assign, nonatomic) BOOL enable;
+///default:NO
+@property (assign, nonatomic) BOOL isSelected;
 
 - (nonnull instancetype)initWithText: (nonnull NSString *)text;
 + (nonnull instancetype)tagWithText: (nonnull NSString *)text;
 
 @end
+NS_ASSUME_NONNULL_END

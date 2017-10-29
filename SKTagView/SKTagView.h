@@ -9,13 +9,14 @@
 #import "SKTag.h"
 
 @interface SKTagView : UIView
-
 @property (assign, nonatomic) UIEdgeInsets padding;
 @property (assign, nonatomic) CGFloat lineSpacing;
 @property (assign, nonatomic) CGFloat interitemSpacing;
 @property (assign, nonatomic) CGFloat preferredMaxLayoutWidth;
 @property (assign, nonatomic) BOOL singleLine;
 @property (copy, nonatomic, nullable) void (^didTapTagAtIndex)(NSUInteger index);
+@property (copy, nonatomic, nullable) void (^didTapOverMax)(void);
+@property (assign, nonatomic) NSInteger maxSelectCount; // 最多可选便签数
 
 - (void)addTag: (nonnull SKTag *)tag;
 - (void)insertTag: (nonnull SKTag *)tag atIndex:(NSUInteger)index;
@@ -24,4 +25,3 @@
 - (void)removeAllTags;
 
 @end
-

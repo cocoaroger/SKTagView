@@ -152,9 +152,29 @@
     self.didSetup = YES;
 }
 
+- (NSInteger)currentSelectedCount {
+    NSInteger count = 0;
+    for (SKTag *tag in self.tags) {
+        if (tag.isSelected) {
+            count++;
+        }
+    }
+    return count;
+}
+
 #pragma mark - IBActions
 
-- (void)onTag: (UIButton *)btn {
+- (void)onTag: (SKTagButton *)btn {
+    BOOL newIsSelected = !btn.isSelected;
+    if (newIsSelected) {
+        if ([self currentSelectedCount] == _maxSelectCount) {
+            if (self.didTapOverMax) {
+                self.didTapOverMax();
+            }
+            return;
+        }
+    }
+    btn.isSelected = newIsSelected;
     if (self.didTapTagAtIndex) {
         self.didTapTagAtIndex([self.subviews indexOfObject: btn]);
     }

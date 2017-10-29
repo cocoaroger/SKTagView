@@ -10,7 +10,8 @@
 
 + (instancetype)buttonWithTag: (SKTag *)tag {
 	SKTagButton *btn = [super buttonWithType:UIButtonTypeCustom];
-	
+    btn.tagObject = tag;
+    
 	if (tag.attributedText) {
 		[btn setAttributedTitle: tag.attributedText forState: UIControlStateNormal];
 	} else {
@@ -44,7 +45,20 @@
     btn.layer.cornerRadius = tag.cornerRadius;
     btn.layer.masksToBounds = YES;
     
+    btn.isSelected = NO;
     return btn;
+}
+
+- (void)setIsSelected:(BOOL)isSelected {
+    _isSelected = isSelected;
+    _tagObject.isSelected = isSelected;
+    if (isSelected) {
+        [self setBackgroundImage:[SKTagButton imageWithColor:_tagObject.selectedBgColor]
+                        forState:UIControlStateNormal];
+    } else {
+        [self setBackgroundImage:nil
+                        forState:UIControlStateNormal];
+    }
 }
 
 + (UIImage *)imageWithColor:(UIColor *)color {
