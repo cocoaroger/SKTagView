@@ -16,7 +16,7 @@
 @property (assign, nonatomic) BOOL singleLine;
 @property (copy, nonatomic, nullable) void (^didTapTagAtIndex)(NSUInteger index);
 @property (copy, nonatomic, nullable) void (^didTapOverMax)(void);
-@property (assign, nonatomic) NSInteger maxSelectCount; // 最多可选便签数
+@property (assign, nonatomic) NSInteger maxSelectCount;
 
 - (void)addTag: (nonnull SKTag *)tag;
 - (void)insertTag: (nonnull SKTag *)tag atIndex:(NSUInteger)index;

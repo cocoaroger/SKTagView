@@ -9,8 +9,8 @@
 @class SKTag;
 @interface SKTagButton: UIButton
 
-@property (strong, nonatomic) SKTag *tagObject;
-@property (assign, nonatomic) BOOL isSelected; // 是否选中
+@property (strong, nonatomic, nullable) SKTag *tagObject;
+@property (assign, nonatomic) BOOL isSelected;
 
 + (nonnull instancetype)buttonWithTag: (nonnull SKTag *)tag;
 
