@@ -9,6 +9,8 @@ This library is derived from [SFTagView](https://github.com/shiweifu/SFTagView),
 
 I tried to make it more Autolayout. After having tried a lot, I inspired by UILabel. Now it just works like UILabel and supports single line and multi-line mode.
 
+### This fork is support multiselect tag
+
 ### Installation with CocoaPods
 
 ```ruby
